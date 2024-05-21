@@ -10,7 +10,7 @@ python -u ./TGA-ZSR.py --Method CLIP --Alpha 0.0 --Beta 0.0
 # FT-Clean
 python -u ./FT.py --Method FT-Clean --VPbaseline True
 
-# FT-Standard
+# FT-Adv.
 python -u ./FT.py --Method FT-Standard --VPbaseline False
 
 # TeCoA
