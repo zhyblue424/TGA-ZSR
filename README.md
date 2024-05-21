@@ -6,7 +6,7 @@
     ·
     <a href="https://www.scottgeng.com/"><strong>Haiyang Zhang*</strong></a>
     ·
-    <a href="http://www.cs.columbia.edu/~junfeng/"><strong>Junfeng Yang</strong></a>
+    <a href="http://www.cs.columbia.edu/~junfeng/"><strong>Changsheng Xu</strong></a>
     </p>
     <p align="center" margin-top="0px"><a href="https://arxiv.org/abs/2212.07016">https://arxiv.org/abs/2212.07016</a></p>
 </p>
