@@ -27,7 +27,7 @@
 |<a href="https://github.com/serendipity1122/Pre-trained-Model-Guided-Fine-Tuning-for-Zero-Shot-Adversarial-Robustness">PMG-AFT</a> | CVPR 2024 | 32.51% | 46.60% | 39.55% | 
 |<a href="https://github.com/chs20/RobustVLM">FARE</a> | CVPR 2024 	| 18.25% | 59.85% | 39.05% |   
 |                  Vision-based              | (initial entry) 	| 29.47% | 45.02% | 37.24% |
-|                    TGA-ZSR                | (initial entry) 	| 41.96% | 59.48% | 49.22% |
+|                    TGA-ZSR(ours)                | (initial entry) 	| 41.96% | 59.48% | 49.22% |
 
 ![Trade-off](./save/figure/trade-off.png)
 If you obtain better results, you are welcome to update your results here by sending email or push request.
