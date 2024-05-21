@@ -22,12 +22,12 @@
 |----------------	|-----------------	|----------------	|-----------------	|-----------------	|
 | <a href="https://github.com/openai/CLIP">CLIP</a> | PMLR 2021 |  4.90% | 64.42% | 34.66% |
 |                      FT-Clean             | (initial entry) 	|  7.05% | 54.37% | 30.71% |
-|                     FT-Standard           | (initial entry) 	| 28.83% | 43.36% | 36.09% |
+|                       FT-Adv.           | (initial entry) 	| 28.83% | 43.36% | 36.09% |
 |<a href="https://github.com/cvlab-columbia/ZSRobust4FoundationModel">TeCoA</a> | ICML 2023 | 28.06% | 45.81% | 36.93% |
 |<a href="https://github.com/serendipity1122/Pre-trained-Model-Guided-Fine-Tuning-for-Zero-Shot-Adversarial-Robustness">PMG-AFT</a> | CVPR 2024 | 32.51% | 46.60% | 39.55% | 
 |<a href="https://github.com/chs20/RobustVLM">FARE</a> | CVPR 2024 	| 18.25% | 59.85% | 39.05% |   
-|                  ours-visual              | (initial entry) 	| 29.47% | 45.02% | 37.24% |
-|                       ours                | (initial entry) 	| 41.96% | 59.48% | 49.22% |
+|                  Vision-based              | (initial entry) 	| 29.47% | 45.02% | 37.24% |
+|                    TGA-ZSR                | (initial entry) 	| 41.96% | 59.48% | 49.22% |
 
 ![Trade-off](./save/figure/trade-off.png)
 If you obtain better results, you are welcome to update your results here by sending email or push request.
