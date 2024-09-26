@@ -13,10 +13,8 @@
 
 ![TGA-ZSR](./save/figure/frame.png)
 
-<div style="text-align: center;">
-  Due to the impressive zero-shot capabilities, pre-trained vision-language models (e.g. CLIP), have attracted widespread attention and adoption across various domains. Nonetheless, CLIP has been observed to be susceptible to adversarial examples. Through experimental analysis, we have observed a phenomenon wherein adversarial perturbations induce shifts in text-guided attention. Building upon this observation, we propose a simple yet effective strategy: _Text-Guided Attention for Zero-Shot Robustness (TGA-ZSR)_. This framework incorporates two components: the Attention Refinement module and the Attention-based Model Constraint module. Our goal is to enhance both the generalization and robustness of the CLIP model: The Attention Refinement module aligns the text-guided attention obtained from the target model via adversarial examples with the text-guided attention acquired from the original model via clean examples. This alignment enhances the
-model’s robustness. Additionally, the Attention-based Model Constraint module acquires text-guided attention from both the target and original models using clean examples. Its objective is to maintain model performance on clean samples while enhancing overall robustness. The experiments validate that our method yields a 9.58% enhancement in zero-shot robust accuracy over the current state-of-the-art techniques across 16 datasets.
-</div>
+
+  Due to the impressive zero-shot capabilities, pre-trained vision-language models (e.g. CLIP), have attracted widespread attention and adoption across various domains. Nonetheless, CLIP has been observed to be susceptible to adversarial examples. Through experimental analysis, we have observed a phenomenon wherein adversarial perturbations induce shifts in text-guided attention. Building upon this observation, we propose a simple yet effective strategy: _Text-Guided Attention for Zero-Shot Robustness (TGA-ZSR)_. This framework incorporates two components: the Attention Refinement module and the Attention-based Model Constraint module. Our goal is to enhance both the generalization and robustness of the CLIP model: The Attention Refinement module aligns the text-guided attention obtained from the target model via adversarial examples with the text-guided attention acquired from the original model via clean examples. This alignment enhances the model’s robustness. Additionally, the Attention-based Model Constraint module acquires text-guided attention from both the target and original models using clean examples. Its objective is to maintain model performance on clean samples while enhancing overall robustness. The experiments validate that our method yields a 9.58% enhancement in zero-shot robust accuracy over the current state-of-the-art techniques across 16 datasets.
 
 ## Zero-Shot Adversarial Robustness Challenge
 
@@ -78,3 +76,13 @@ and specific options for each of TGA-ZSR.py:
 * `--Alpha`: L_AR in Equ.6. (default = 0.08)
 * `--Beta`: L_AMC in Equ.7. (default = 0.05)
 
+## Citation
+If you find this repository useful, please consider citing our paper:
+```bibtex
+@article{tga-zsr,
+    title={Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models}, 
+    author={Yu Lu, Haiyang Zhang and Changsheng Xu},
+    year={2024},
+    journal={38th on Neural Information Processing Systems}
+}
+```
