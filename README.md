@@ -1,10 +1,10 @@
-# Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models (NeurIPS 2024)
+# [NeurIPS 2024] Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models 
 
 <p align="center">
   <p align="center" margin-bottom="0px">
-    <a href="http://www.cs.columbia.edu/~mcz/"><strong>Lu Yu*</strong></a>
+    <a href="http://www.cs.columbia.edu/~mcz/"><strong>Lu Yu</strong></a>
     ·
-    <a href="https://www.scottgeng.com/"><strong>Haiyang Zhang*</strong></a>
+    <a href="https://www.scottgeng.com/"><strong>Haiyang Zhang</strong></a>
     ·
     <a href="http://www.cs.columbia.edu/~junfeng/"><strong>Changsheng Xu</strong></a>
     </p>
@@ -25,7 +25,7 @@
 |                       FT-Adv.           | (initial entry) 	| 28.83% | 43.36% | 36.09% |
 |<a href="https://github.com/cvlab-columbia/ZSRobust4FoundationModel">TeCoA</a> | ICML 2023 | 28.06% | 45.81% | 36.93% |
 |<a href="https://github.com/serendipity1122/Pre-trained-Model-Guided-Fine-Tuning-for-Zero-Shot-Adversarial-Robustness">PMG-AFT</a> | CVPR 2024 | 32.51% | 46.60% | 39.55% | 
-|<a href="https://github.com/chs20/RobustVLM">FARE</a> | CVPR 2024 	| 18.25% | 59.85% | 39.05% |   
+|<a href="https://github.com/chs20/RobustVLM">FARE</a> | ICML 2024 	| 18.25% | 59.85% | 39.05% |   
 |                  Vision-based              | (initial entry) 	| 29.47% | 45.02% | 37.24% |
 |                    TGA-ZSR(ours)                | (initial entry) 	| 41.96% | 59.48% | 49.22% |
 
