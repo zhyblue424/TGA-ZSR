@@ -247,7 +247,7 @@ def main():
         best_acc1 = max(acc1_mean, best_acc1)
 
         save_checkpoint({
-            'epoch': args.start_epoch + epoch + 1,###########################################################################
+            'epoch': args.start_epoch + epoch + 1,
             'state_dict': prompter.state_dict(),
             'add_prompter': add_prompter.state_dict(),
             'best_acc1': best_acc1,
@@ -266,7 +266,7 @@ def main():
                 logger.info("The training halted by early stopping criterion.")
                 break
 
-"""训练函数"""
+"""train function"""
 def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
           optimizer, scheduler, scaler, epoch,  args):
     batch_time = AverageMeter('Time', ':6.3f')
@@ -276,7 +276,7 @@ def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
     progress = ProgressMeter(
         len(train_loader),
         [batch_time, data_time, losses, top1],
-        prefix="Epoch: [{}]".format(args.start_epoch + epoch))##########################################################################
+        prefix="Epoch: [{}]".format(args.start_epoch + epoch))
     
     """switch to train mode"""
     prompter.train()
@@ -351,6 +351,7 @@ def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
         'add_prompter': add_prompter.state_dict(),
         'best_acc1': best_acc1,
         'optimizer': optimizer.state_dict(),
+        'vision_encoder_state_dict':model.visual.state_dict(),
         }, args)
     return losses.avg, top1.avg
 
