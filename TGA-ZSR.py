@@ -332,8 +332,8 @@ def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
             clean_ori = attention_map(text_features, frozen_model, clean_images, prompt_token, args).view(prompted_images.size()[0], -1)
             clean_tar = attention_map(text_features, model, clean_images, prompt_token, args).view(prompted_images.size()[0], -1)
             
-            loss_TeCoA ,loss_SoftCe, loss_AM1 ,loss_AM2=criterion(model, output, target, attack_tar, clean_ori, clean_tar, args)
-            loss = loss_TeCoA +loss_SoftCe +loss_AM1 + loss_AM2
+            loss_TeCoA ,loss_AM1 ,loss_AM2=criterion(model, output, target, attack_tar, clean_ori, clean_tar, args)
+            loss = loss_TeCoA +loss_AM1 + loss_AM2
             scaler.scale(loss).backward()
             scaler.step(optimizer)
         scaler.update()
@@ -436,8 +436,8 @@ def validate(val_loader_list, val_dataset_name, texts_list, model,frozen_model,o
                     clean_atten = attention_map(text_features, frozen_model, clip_img_preprocessing(images,device), prompt_token, args).view(images.size()[0], -1)
                     clean_atten_model = attention_map(text_features, model, clip_img_preprocessing(images,device), prompt_token, args).view(images.size()[0], -1)
                     # torch.cuda.empty_cache()
-                    loss_TeCoA ,loss_SoftCe, loss_AM1 ,loss_AM2=criterion(model, output_org_adv, target, attack_atten, clean_atten,clean_atten_model, args)
-                    loss = loss_TeCoA +loss_SoftCe +loss_AM1 + loss_AM2
+                    loss_TeCoA ,loss_AM1 ,loss_AM2=criterion(model, output_org_adv, target, attack_atten, clean_atten,clean_atten_model, args)
+                    loss = loss_TeCoA +loss_AM1 + loss_AM2
                     losses.update(loss.item(), images.size(0))
                     
                     acc1 = accuracy(output_org_adv, target, topk=(1,))
