@@ -251,7 +251,7 @@ def main():
         best_acc1 = max(acc1_mean, best_acc1)
 
         save_checkpoint({
-            'epoch': args.start_epoch + epoch + 1,###########################################################################
+            'epoch': args.start_epoch + epoch + 1,
             'state_dict': prompter.state_dict(),
             'add_prompter': add_prompter.state_dict(),
             'best_acc1': best_acc1,
@@ -360,6 +360,7 @@ def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
         'add_prompter': add_prompter.state_dict(),
         'best_acc1': best_acc1,
         'optimizer': optimizer.state_dict(),
+        'vision_encoder_state_dict':model.visual.state_dict(),
         }, args)
     return losses.avg, top1.avg
 
