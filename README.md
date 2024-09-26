@@ -30,7 +30,7 @@
 |                    TGA-ZSR(ours)                | (initial entry) 	| 42.09% | 56.44% | 49.27% |
 
 ![Trade-off](./save/figure/trade-off.png)
-If you obtain better results, you are welcome to update your results here by sending email or push request.
+The trade-off between robustness and clean accuracy. Each point on the graph represents a method, with the size of the point indicating the extent to which it achieves a favorable trade-off between robustness and clean accuracy.If you obtain better results, you are welcome to update your results here by sending email or push request.
 
 ## CLIP Model
 
