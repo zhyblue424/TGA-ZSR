@@ -86,3 +86,6 @@ If you find this repository useful, please consider citing our paper:
     journal={38th on Neural Information Processing Systems}
 }
 ```
+
+## Acknowledgement
+We gratefully thank the authors from [TeCoA](https://github.com/cvlab-columbia/ZSRobust4FoundationModel) and [CLIPCAM](https://github.com/aiiu-lab/CLIPCAM) for open-sourcing their code.
