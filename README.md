@@ -23,7 +23,7 @@
 | <a href="https://github.com/openai/CLIP">CLIP</a> | PMLR 2021 |  4.90% | 64.42% | 34.66% |
 |                      FT-Clean             | (initial entry) 	|  7.05% | 54.37% | 30.71% |
 |                       FT-Adv.           | (initial entry) 	| 28.83% | 43.36% | 36.09% |
-|<a href="https://github.com/cvlab-columbia/ZSRobust4FoundationModel">TeCoA</a> | ICML 2023 | 28.06% | 45.81% | 36.93% |
+|<a href="https://github.com/cvlab-columbia/ZSRobust4FoundationModel">TeCoA</a> | ICLR 2023 | 28.06% | 45.81% | 36.93% |
 |<a href="https://github.com/serendipity1122/Pre-trained-Model-Guided-Fine-Tuning-for-Zero-Shot-Adversarial-Robustness">PMG-AFT</a> | CVPR 2024 | 32.51% | 46.60% | 39.55% | 
 |<a href="https://github.com/chs20/RobustVLM">FARE</a> | ICML 2024 	| 18.25% | 59.85% | 39.05% |   
 |                  Vision-based              | (initial entry) 	| 29.47% | 45.02% | 37.24% |
