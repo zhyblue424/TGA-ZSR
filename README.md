@@ -8,7 +8,7 @@
     ·
     <strong>Changsheng Xu</strong></a>
     </p>
-    <p align="center" margin-top="0px"><a href="https://arxiv.org/abs/2212.07016">https://arxiv.org/abs/2212.07016</a></p>
+<!--     <p align="center" margin-top="0px"><a href="https://arxiv.org/abs/2212.07016">https://arxiv.org/abs/2212.07016</a></p> -->
 </p>
 
 ![TGA-ZSR](./save/figure/frame.png)
