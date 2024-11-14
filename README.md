@@ -43,7 +43,6 @@ virtualenv TGA-ZSR
 source TGA-ZSR/venv/bin/activate
 pip install -r requirement.txt
 ```
-Then replace the files in the replace folder to the source code in your environmet:  
 
 
 ### Experiment:
