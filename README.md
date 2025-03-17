@@ -41,7 +41,7 @@ install virtual environment:
 pip install virtualenv
 virtualenv TGA-ZSR
 source TGA-ZSR/venv/bin/activate
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 
