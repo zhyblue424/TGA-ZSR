@@ -33,7 +33,7 @@
 The trade-off between robustness and clean accuracy. Each point on the graph represents a method, with the size of the point indicating the extent to which it achieves a favorable trade-off between robustness and clean accuracy.If you obtain better results, you are welcome to update your results here by sending email or push request.
 
 ## CLIP Model
-
+To facilitate reproducibility and further research, we provide publicly available checkpoints for both <a href="https://drive.google.com/drive/folders/1T7APhNq3tRW81vC1Lx8JSbHxWuP7euSx?usp=drive_link">TGA-ZSR</a> and <a href="https://drive.google.com/file/d/1mUZHqyfTOQHQVgY25o9WEkqeXuYILibV/view?usp=drive_link">Comp-TGA</a>.
 ### Environment setup:
 
 install virtual environment:
