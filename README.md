@@ -176,12 +176,13 @@ Comp-TGA.py:
 ## Citation
 If you find this repository useful, please consider citing our paper:
 ```bibtex
-@inproceedings{
-TGA-ZSR,
-title={Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models},
-author={Yu, Lu and Zhang, Haiyang and Xu, Changsheng},
-booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-year={2024},
+@inproceedings{TGA-ZSR,
+     title={Text-guided attention is all you need for zero-shot robustness in vision-language models},
+     author={Yu, Lu and Zhang, Haiyang and Xu, Changsheng},
+     journal={Advances in Neural Information Processing Systems},
+     volume={37},
+     pages={96424--96448},
+     year={2024}
 }
 ```
 
