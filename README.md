@@ -1,18 +1,12 @@
 <p align="center">
-  
+
 # Complementary Text-Guided Attention for Zero-Shot Adversarial Robustness  
-### 🚀 TPAMI 2026
-<br>
-  
+### 🚀 TPAMI 2026  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="">📄 TPAMI 2026 Paper (arXiv)</a>
+
+<br><br>
+
 # Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models  
-### 🎯 NeurIPS 2024
-<br>
-</p>
-
-
-<p align="center">
-<b>Lu Yu · Haiyang Zhang · Changsheng Xu</b><br>
-<a href="https://arxiv.org/abs/2410.21802">📄 Paper (arXiv)</a>
+### 🎯 NeurIPS 2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://arxiv.org/abs/2410.21802">📄 NeurIPS 2024 Paper (arXiv)</a>
 </p>
 
 ---
@@ -57,9 +51,7 @@ Adversarial examples induce significant deviation in text-guided attention.
 Even without adversarial perturbations, text-guided attention may focus on irrelevant regions.
 
 <p align="center">
-  <span style="background-color: white; padding: 12px; border-radius: 8px; display: inline-block;">
-    <img src="./save/figure/diff.png" width="70%">
-  </span>
+  <img src="./save/figure/diff.png" width="70%">
 </p>
 
 ---
@@ -69,7 +61,7 @@ Even without adversarial perturbations, text-guided attention may focus on irrel
 ### TGA-ZSR Framework
 
 <p align="center">
-<img src="./save/figure/frame.png" width="80%">
+<img src="./save/figure/frame.png" width="70%">
 </p>
 
 TGA-ZSR consists of two components:
@@ -87,7 +79,7 @@ This design enforces attention consistency without sacrificing zero-shot general
 ### Complementary Text-Guided Attention (Comp-TGA)
 
 <p align="center">
-<img src="./save/figure/frame_comp1.png" width="80%">
+<img src="./save/figure/frame_comp1.png" width="70%">
 </p>
 
 We observe that standard text-guided attention occasionally captures spurious foreground cues.
@@ -167,15 +159,15 @@ options for each of the code parts :
 * `--last_num_ft`: fine tuning layer (default = 0)
 * `--VPbaseline`: Whether adversarial training is conducted or not.
 
-and specific options for each of TGA-ZSR.py:
-  
+Specific Options ：
+
+TGA-ZSR.py
 * `--Distance_metric`: Select the distance measure in the loss function. (default = 'l2')
 * `--atten_methods`: Attention from different perspectives. (default = 'text')
 * `--Alpha`: L_AR in Equ.9. (default = 0.08)
 * `--Beta`: L_AMC in Equ.12. (default = 0.05)
 
-specific options for each of Comp-TGA.py:
-  
+Comp-TGA.py: 
 * `--Distance_metric`: Select the distance measure in the loss function. (default = 'l2')
 * `--atten_methods`: Attention from different perspectives. (default = 'text')
 * `--Alpha`: L_AR in Equ.9. (default = 0.10)
