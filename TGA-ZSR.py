@@ -233,7 +233,7 @@ def main():
         os.makedirs(args.model_folder)
 
     epochs_since_improvement = 0
-    
+    best_acc1 = 0.
 
     """training"""
     for epoch in range(args.epochs):
@@ -242,33 +242,33 @@ def main():
               scaler, epoch,  args)
         
         # evaluate on validation set
-        if epoch % args.validate_freq == 0:
-            acc1_mean = validate(val_loader_list, val_dataset_name, texts_list, model,frozen_model,optimizer, device,
-                                 prompter, add_prompter, args)
+        # if epoch % args.validate_freq == 0:
+    acc1_mean = validate(val_loader_list, val_dataset_name, texts_list, model,frozen_model,optimizer, device,
+                         prompter, add_prompter, args)
             
         # remember best acc@1 and save checkpoint
-        is_best = acc1_mean > best_acc1
-        best_acc1 = max(acc1_mean, best_acc1)
+        # is_best = acc1_mean > best_acc1
+        # best_acc1 = max(acc1_mean, best_acc1)
 
-        save_checkpoint({
-            'epoch': args.start_epoch + epoch + 1,
-            'state_dict': prompter.state_dict(),
-            'add_prompter': add_prompter.state_dict(),
-            'best_acc1': best_acc1,
-            'optimizer': optimizer.state_dict(),
-            'vision_encoder_state_dict':model.visual.state_dict(),
-        }, args, is_best=is_best)
+        # save_checkpoint({
+        #     'epoch': args.start_epoch + epoch + 1,
+        #     'state_dict': prompter.state_dict(),
+        #     'add_prompter': add_prompter.state_dict(),
+        #     'best_acc1': best_acc1,
+        #     'optimizer': optimizer.state_dict(),
+        #     'vision_encoder_state_dict':model.visual.state_dict(),
+        # }, args, is_best=is_best)
 
-        if is_best:
-            epochs_since_improvement = 0
-        else:
-            epochs_since_improvement += 1
-            print(f"There's no improvement for {epochs_since_improvement} epochs.")
-            logger.info(f"There's no improvement for {epochs_since_improvement} epochs.")
-            if epochs_since_improvement >= args.patience:
-                print("The training halted by early stopping criterion.")
-                logger.info("The training halted by early stopping criterion.")
-                break
+        # if is_best:
+        #     epochs_since_improvement = 0
+        # else:
+        #     epochs_since_improvement += 1
+        #     print(f"There's no improvement for {epochs_since_improvement} epochs.")
+        #     logger.info(f"There's no improvement for {epochs_since_improvement} epochs.")
+        #     if epochs_since_improvement >= args.patience:
+        #         print("The training halted by early stopping criterion.")
+        #         logger.info("The training halted by early stopping criterion.")
+        #         break
 
 """train function"""
 def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
@@ -311,6 +311,12 @@ def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
 
         # with automatic mixed precision
         with autocast():
+            with torch.no_grad():
+                logis_scale = model.logit_scale.exp()
+                text_features = model.encode_text(text_tokens)
+                text_features = text_features / text_features.norm(dim=1, keepdim=True)
+                text_embed = logit_scale * text_features
+                
             """Build adversarial example"""
             if not args.VPbaseline:
                 delta = attack_pgd(prompter, model,add_prompter,images,
@@ -324,13 +330,16 @@ def train(train_loader, texts, model,frozen_model, prompter, add_prompter,
             clean_images = prompter(clip_img_preprocessing(images,device))
             prompt_token = add_prompter()
 
-            output, _ , text_features= multiGPU_CLIP(model, prompted_images, text_tokens, target, device, prompt_token)
-            text_features = text_features[target,:]
+            # output, _ , text_features= multiGPU_CLIP(model, prompted_images, text_tokens, target, device, prompt_token)
+            adv_features = model.encode_image(prompted_images, prompt_token)[:, 0, :]
+            adv_features = adv_features / adv_features.norm(dim=1, keepdim = True)
+            output = adv_features @ text_embed.t()
+            
 
             """Calculated to gain attention"""
-            attack_tar = attention_map(text_features, model, prompted_images, prompt_token, args).view(prompted_images.size()[0], -1)
-            clean_ori = attention_map(text_features, frozen_model, clean_images, prompt_token, args).view(prompted_images.size()[0], -1)
-            clean_tar = attention_map(text_features, model, clean_images, prompt_token, args).view(prompted_images.size()[0], -1)
+            attack_tar = attention_map(text_features[target,:], model, prompted_images, prompt_token, args).view(prompted_images.size()[0], -1)
+            clean_ori = attention_map(text_features[target,:], frozen_model, clean_images, prompt_token, args).view(prompted_images.size()[0], -1)
+            clean_tar = attention_map(text_features[target,:], model, clean_images, prompt_token, args).view(prompted_images.size()[0], -1)
             
             loss_TeCoA ,loss_AM1 ,loss_AM2=criterion(model, output, target, attack_tar, clean_ori, clean_tar, args)
             loss = loss_TeCoA +loss_AM1 + loss_AM2
