@@ -1,12 +1,12 @@
 <p align="center">
 
 # Complementary Text-Guided Attention for Zero-Shot Adversarial Robustness  
-### 🚀 TPAMI 2026  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="">📄 TPAMI 2026 Paper (arXiv)</a>
+### 🚀 TPAMI 2026  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="">📄 TPAMI 2026 Paper (arXiv)</a>
 
 <br><br>
 
 # Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models  
-### 🎯 NeurIPS 2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://arxiv.org/abs/2410.21802">📄 NeurIPS 2024 Paper (arXiv)</a>
+### 🎯 NeurIPS 2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://arxiv.org/abs/2410.21802">📄 NeurIPS 2024 Paper (arXiv)</a>
 </p>
 
 ---
