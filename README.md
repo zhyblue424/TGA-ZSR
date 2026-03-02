@@ -164,14 +164,14 @@ Specific Options ：
 TGA-ZSR.py
 * `--Distance_metric`: Select the distance measure in the loss function. (default = 'l2')
 * `--atten_methods`: Attention from different perspectives. (default = 'text')
-* `--Alpha`: L_AR in Equ.9. (default = 0.08)
-* `--Beta`: L_AMC in Equ.12. (default = 0.05)
+* `--Alpha`: L_LARM in Equ.9. (default = 0.08)
+* `--Beta`: L_GACM in Equ.12. (default = 0.05)
 
 Comp-TGA.py: 
 * `--Distance_metric`: Select the distance measure in the loss function. (default = 'l2')
 * `--atten_methods`: Attention from different perspectives. (default = 'text')
-* `--Alpha`: L_AR in Equ.9. (default = 0.10)
-* `--Beta`: L_AMC in Equ.12. (default = 0.07)
+* `--Alpha`: L_LARM in Equ.9. (default = 0.10)
+* `--Beta`: L_GACM in Equ.12. (default = 0.07)
 
 ## Citation
 If you find this repository useful, please consider citing our paper:
