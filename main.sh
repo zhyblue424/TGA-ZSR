@@ -1,3 +1,6 @@
+# Comp-TGA
+python -u ./Comp-TGA.py
+
 # TGA-ZSR
 python -u ./TGA-ZSR.py
 
