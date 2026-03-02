@@ -16,6 +16,12 @@
 
 Due to the impressive zero-shot capabilities, pretrained vision-language models (e.g., CLIP), have attracted widespread attention and adoption across various domains. Nonetheless, CLIP has been observed to be susceptible to adversarial examples. Through experimental analysis, we have observed a phenomenon wherein adversarial perturbations induce shifts in text-guided attention. Building upon this observation, we propose a simple yet effective strategy: Text-Guided Attention for Zero-Shot Robustness (TGA-ZSR). This framework incorporates two components: Local Attention Refinement Module and Global Attention Constraint Module. Our goal is to maintain the generalization of the CLIP model and enhance its adversarial robustness: The Local Attention Refinement Module aligns the text-guided attention obtained from the target model via adversarial examples with the text-guided attention acquired from the original model via clean examples. This alignment enhances the model’s robustness. Additionally, the Global Attention Constraint Module acquires text-guided attention from both the target and original models using clean examples. Its objective is to maintain model performance on clean samples while enhancing overall robustness. However, we observe that the method occasionally focuses on irrelevant or spurious features, which can lead to suboptimal performance and undermine its robustness in certain scenarios. To overcome this limitation, we further propose a novel approach called Complementary Text-Guided Attention (CompTGA). This method integrates two types of foreground attention: attention guided by the class prompt and reversed attention driven by the non-class prompt. These complementary attention mechanisms allow the model to capture a more comprehensive and accurate representation of the foreground. The experiments validate that TGA-ZSR and Comp-TGA yield 9.58% and 11.95% improvements respectively, in zero-shot robust accuracy over the current state-of-the-art techniques across 16 datasets. 
 
+Through experimentation, it was observed that the attention mechanism guided by the text in the adversarial example had shifted.
+![TGA-ZSR](./save/figure/image.png)
+
+We further observe that the original text-guided attention occasionally focuses on the irrelevant features.
+
+
 ## Zero-Shot Adversarial Robustness Challenge
 
 | Defence Method 	| Submitted By    	| Accuracy<br>(Robust) | Accuracy<br>(Clean) 	  | Accuracy<br>(Average) |
@@ -30,7 +36,8 @@ Due to the impressive zero-shot capabilities, pretrained vision-language models 
 |                    TGA-ZSR(ours)                | (NeurIPS 2024) 	| 42.09% | 56.44% | 49.27% |
 |                    Comp-TGA(ours)                | (TPAMI 2026) 	| 44.46% | 55.44% | 49.95% |
 
-![Trade-off](./save/figure/trade-off.png)
+![Trade-off](./save/figure/trade-off.jpg)
+
 The trade-off between robustness and clean accuracy. Each point on the graph represents a method, with the size of the point indicating the extent to which it achieves a favorable trade-off between robustness and clean accuracy.If you obtain better results, you are welcome to update your results here by sending email or push request.
 
 ## CLIP Model
@@ -47,9 +54,6 @@ pip install -r requirements.txt
 
 
 ### Experiment:
-Through experimentation, it was observed that the attention mechanism guided by the text in the adversarial example had shifted.
-![TGA-ZSR](./save/figure/image.png)
-
 Run the code with (<a href="https://github.com/cvlab-columbia/ZSRobust4FoundationModel">TeCoA</a> and <a href="https://github.com/serendipity1122/Pre-trained-Model-Guided-Fine-Tuning-for-Zero-Shot-Adversarial-Robustness">PMG-AFT</a> see source code.):
 ```
 bash ./main.sh
