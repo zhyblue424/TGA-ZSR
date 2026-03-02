@@ -57,7 +57,9 @@ Adversarial examples induce significant deviation in text-guided attention.
 Even without adversarial perturbations, text-guided attention may focus on irrelevant regions.
 
 <p align="center">
-<img src="./save/figure/diff.png" width="70%">
+  <span style="background-color: white; padding: 12px; border-radius: 8px; display: inline-block;">
+    <img src="./save/figure/diff.png" width="70%">
+  </span>
 </p>
 
 ---
