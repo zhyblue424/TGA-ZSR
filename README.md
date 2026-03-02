@@ -1,51 +1,143 @@
-# [TPAMI 2026] Complementary Text-Guided Attention for Zero-Shot Adversarial Robustness & [NeurIPS 2024] Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models 
-
 <p align="center">
-  <p align="center" margin-bottom="0px">
-    <strong>Lu Yu</strong></a>
-    ·
-    <strong>Haiyang Zhang</strong></a>
-    ·
-    <strong>Changsheng Xu</strong></a>
-    </p>
-    <p align="center" margin-top="0px"><a href="https://arxiv.org/abs/2410.21802">https://arxiv.org/abs/2410.21802</a></p>
+  
+# Complementary Text-Guided Attention for Zero-Shot Adversarial Robustness  
+### 🚀 TPAMI 2026
+<br>
+  
+# Text-Guided Attention is All You Need for Zero-Shot Robustness in Vision-Language Models  
+### 🎯 NeurIPS 2024
+<br>
 </p>
 
-![TGA-ZSR](./save/figure/frame.png)
 
+<p align="center">
+<b>Lu Yu · Haiyang Zhang · Changsheng Xu</b><br>
+<a href="https://arxiv.org/abs/2410.21802">📄 Paper (arXiv)</a>
+</p>
 
-Due to the impressive zero-shot capabilities, pretrained vision-language models (e.g., CLIP), have attracted widespread attention and adoption across various domains. Nonetheless, CLIP has been observed to be susceptible to adversarial examples. Through experimental analysis, we have observed a phenomenon wherein adversarial perturbations induce shifts in text-guided attention. Building upon this observation, we propose a simple yet effective strategy: Text-Guided Attention for Zero-Shot Robustness (TGA-ZSR). This framework incorporates two components: Local Attention Refinement Module and Global Attention Constraint Module. Our goal is to maintain the generalization of the CLIP model and enhance its adversarial robustness: The Local Attention Refinement Module aligns the text-guided attention obtained from the target model via adversarial examples with the text-guided attention acquired from the original model via clean examples. This alignment enhances the model’s robustness. Additionally, the Global Attention Constraint Module acquires text-guided attention from both the target and original models using clean examples. Its objective is to maintain model performance on clean samples while enhancing overall robustness. However, we observe that the method occasionally focuses on irrelevant or spurious features, which can lead to suboptimal performance and undermine its robustness in certain scenarios. To overcome this limitation, we further propose a novel approach called Complementary Text-Guided Attention (CompTGA). This method integrates two types of foreground attention: attention guided by the class prompt and reversed attention driven by the non-class prompt. These complementary attention mechanisms allow the model to capture a more comprehensive and accurate representation of the foreground. The experiments validate that TGA-ZSR and Comp-TGA yield 9.58% and 11.95% improvements respectively, in zero-shot robust accuracy over the current state-of-the-art techniques across 16 datasets. 
+---
 
-Through experimentation, it was observed that the attention mechanism guided by the text in the adversarial example had shifted.
-![TGA-ZSR](./save/figure/image.png)
+## 🔍 Overview
 
-We further observe that the original text-guided attention occasionally focuses on the irrelevant features.
+Pretrained vision-language models such as [CLIP](https://github.com/openai/CLIP) demonstrate remarkable zero-shot generalization ability. However, they remain highly vulnerable to adversarial perturbations.
 
+We identify a critical phenomenon:
 
-## Zero-Shot Adversarial Robustness Challenge
+> Adversarial perturbations systematically shift **text-guided attention**, rather than merely corrupting pixel space.
 
-| Defence Method 	| Submitted By    	| Accuracy<br>(Robust) | Accuracy<br>(Clean) 	  | Accuracy<br>(Average) |
-|----------------	|-----------------	|----------------	|-----------------	|-----------------	|
-| <a href="https://github.com/openai/CLIP">CLIP</a> | PMLR 2021 |  4.90% | 64.42% | 34.66% |
-|                      FT-Clean             | (initial entry) 	|  7.05% | 54.37% | 30.71% |
-|                       FT-Adv.           | (initial entry) 	| 28.83% | 43.36% | 36.09% |
-|<a href="https://github.com/cvlab-columbia/ZSRobust4FoundationModel">TeCoA</a> | ICLR 2023 | 28.06% | 45.81% | 36.93% |
-|<a href="https://github.com/serendipity1122/Pre-trained-Model-Guided-Fine-Tuning-for-Zero-Shot-Adversarial-Robustness">PMG-AFT</a> | CVPR 2024 | 32.51% | 46.60% | 39.55% | 
-|<a href="https://github.com/chs20/RobustVLM">FARE</a> | ICML 2024 	| 18.25% | 59.85% | 39.05% |   
-|                  Vision-based              | (initial entry) 	| 29.47% | 45.02% | 37.24% |
-|                    TGA-ZSR(ours)                | (NeurIPS 2024) 	| 42.09% | 56.44% | 49.27% |
-|                    Comp-TGA(ours)                | (TPAMI 2026) 	| 44.46% | 55.44% | 49.95% |
+Based on this insight, we propose:
 
-![Trade-off](./save/figure/trade-off.jpg)
+- **TGA-ZSR** (NeurIPS 2024)  
+  *Text-Guided Attention for Zero-Shot Robustness*
 
-The trade-off between robustness and clean accuracy. Each point on the graph represents a method, with the size of the point indicating the extent to which it achieves a favorable trade-off between robustness and clean accuracy.If you obtain better results, you are welcome to update your results here by sending email or push request.
+- **Comp-TGA** (TPAMI 2026)  
+  *Complementary Text-Guided Attention*
 
-## CLIP Model
-To facilitate reproducibility and further research, we provide publicly available checkpoints for both <a href="https://drive.google.com/drive/folders/1T7APhNq3tRW81vC1Lx8JSbHxWuP7euSx?usp=drive_link">TGA-ZSR</a> and <a href="https://drive.google.com/drive/folders/1cvqDha1useGdCgTjGatZMuBj1W71nMyk?usp=drive_link">Comp-TGA</a>.
-### Environment setup:
+Across 16 datasets, our methods improve zero-shot robust accuracy by:
 
-install virtual environment:
-```
+- **+9.58%** with TGA-ZSR  
+- **+11.95%** with Comp-TGA  
+
+---
+
+## 🧠 Motivation
+
+### Attention Shift Under Adversarial Perturbation
+
+Adversarial examples induce significant deviation in text-guided attention.
+
+<p align="center">
+<img src="./save/figure/image.png" width="70%">
+</p>
+
+---
+
+### Spurious Attention in Clean Samples
+
+Even without adversarial perturbations, text-guided attention may focus on irrelevant regions.
+
+<p align="center">
+<img src="./save/figure/diff.png" width="70%">
+</p>
+
+---
+
+## 🚀 Method
+
+### TGA-ZSR Framework
+
+<p align="center">
+<img src="./save/figure/frame.png" width="80%">
+</p>
+
+TGA-ZSR consists of two components:
+
+**Local Attention Refinement Module**  
+Aligns adversarial attention with clean attention from the original model.
+
+**Global Attention Constraint Module**  
+Preserves clean performance while enhancing robustness.
+
+This design enforces attention consistency without sacrificing zero-shot generalization.
+
+---
+
+### Complementary Text-Guided Attention (Comp-TGA)
+
+<p align="center">
+<img src="./save/figure/frame_comp1.png" width="80%">
+</p>
+
+We observe that standard text-guided attention occasionally captures spurious foreground cues.
+
+Comp-TGA introduces a complementary fusion mechanism:
+
+- Class-prompt guided foreground attention  
+- Reversed non-class prompt driven attention  
+
+By integrating these two complementary signals, the model captures a more accurate foreground representation and improves robustness stability.
+
+---
+
+## 📊 Zero-Shot Adversarial Robustness Benchmark
+
+| Method | Venue | Robust | Clean | Average |
+|--------|--------|--------|--------|--------|
+| CLIP | ICML 2021 | 4.90 | 64.42 | 34.66 |
+| FT-Clean | Initial Entry | 7.05 | 54.37 | 30.71 |
+| FT-Adv. | Initial Entry | 28.83 | 43.36 | 36.09 |
+| TeCoA | ICLR 2023 | 28.06 | 45.81 | 36.93 |
+| PMG-AFT | CVPR 2024 | 32.51 | 46.60 | 39.55 |
+| FARE | ICML 2024 | 18.25 | 59.85 | 39.05 |
+| Vision-based | Initial Entry | 29.47 | 45.02 | 37.24 |
+| **TGA-ZSR (Ours)** | NeurIPS 2024 | **42.09** | 56.44 | 49.27 |
+| **Comp-TGA (Ours)** | TPAMI 2026 | **44.46** | 55.44 | **49.95** |
+
+---
+
+### Robustness–Clean Trade-off
+
+<p align="center">
+<img src="./save/figure/trade-off.jpg" width="70%">
+</p>
+
+Each point represents a method.  
+Point size reflects trade-off quality between clean and robust accuracy.
+
+---
+
+## 🔧 Reproducibility
+
+### Checkpoints
+
+- [TGA-ZSR](https://drive.google.com/drive/folders/1T7APhNq3tRW81vC1Lx8JSbHxWuP7euSx?usp=drive_link)  
+- [Comp-TGA](https://drive.google.com/drive/folders/1cvqDha1useGdCgTjGatZMuBj1W71nMyk?usp=drive_link)
+
+---
+
+## ⚙️ Environment Setup
+
+```bash
 pip install virtualenv
 virtualenv TGA-ZSR
 source TGA-ZSR/venv/bin/activate
@@ -77,8 +169,15 @@ and specific options for each of TGA-ZSR.py:
   
 * `--Distance_metric`: Select the distance measure in the loss function. (default = 'l2')
 * `--atten_methods`: Attention from different perspectives. (default = 'text')
-* `--Alpha`: L_AR in Equ.6. (default = 0.08)
-* `--Beta`: L_AMC in Equ.7. (default = 0.05)
+* `--Alpha`: L_AR in Equ.9. (default = 0.08)
+* `--Beta`: L_AMC in Equ.12. (default = 0.05)
+
+specific options for each of Comp-TGA.py:
+  
+* `--Distance_metric`: Select the distance measure in the loss function. (default = 'l2')
+* `--atten_methods`: Attention from different perspectives. (default = 'text')
+* `--Alpha`: L_AR in Equ.9. (default = 0.10)
+* `--Beta`: L_AMC in Equ.12. (default = 0.07)
 
 ## Citation
 If you find this repository useful, please consider citing our paper:
