@@ -427,27 +427,21 @@ def validate(val_loader_list, val_dataset_name, texts_list, model,frozen_model,o
                     top1_org.update(acc1[0].item(), images.size(0))
 
                 """adv images"""
-                if args.attack == 'pgd':
+                if args.attack == 'CW':
+                    delta_noprompt = attack_CW(None, model, None,  images, target, text_tokens,
+                                        test_stepsize, args.test_numsteps, 'l_inf',device, args, epsilon=args.test_eps)
+                    attacked_images = images + delta_noprompt
+                elif args.attack == 'pgd':
                     delta_noprompt = attack_pgd(None, model, None, images, target, text_tokens,
                                         test_stepsize, args.test_numsteps,'l_inf',device, args, epsilon=args.test_eps)
                     attacked_images = images + delta_noprompt
                 else:
-                    attacked_images  = attack_auto(model, images, target, text_tokens, None, None, device,
+                    attacked_images  = attack_auto(model, images, target, text_tokens, None, None, device, args,
                                             attacks_to_run=attacks_to_run, epsilon=args.test_eps)
-
-                # torch.cuda.empty_cache()
+                
                 with torch.no_grad():
-                    output_org_adv, _, text_features= multiGPU_CLIP(model, clip_img_preprocessing(attacked_images,device),
-                                                        text_tokens, target, device, None)
-                    
-                    text_features = text_features[target,:]
-                    attack_atten =attention_map(text_features, model, clip_img_preprocessing(attacked_images,device), prompt_token, args).view(images.size()[0], -1)
-                    clean_atten = attention_map(text_features, frozen_model, clip_img_preprocessing(images,device), prompt_token, args).view(images.size()[0], -1)
-                    clean_atten_model = attention_map(text_features, model, clip_img_preprocessing(images,device), prompt_token, args).view(images.size()[0], -1)
-                    # torch.cuda.empty_cache()
-                    loss_TeCoA ,loss_AM1 ,loss_AM2=criterion(model, output_org_adv, target, attack_atten, clean_atten,clean_atten_model, args)
-                    loss = loss_TeCoA +loss_AM1 + loss_AM2
-                    losses.update(loss.item(), images.size(0))
+                    output_org_adv, logits_text, _= multiGPU_CLIP(model, clip_img_preprocessing(attacked_images,device),
+                                                        text_tokens, target, device, args, None)
                     
                     acc1 = accuracy(output_org_adv, target, topk=(1,))
                     top1_adv_org.update(acc1[0].item(), images.size(0))
