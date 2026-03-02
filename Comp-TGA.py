@@ -99,8 +99,8 @@ def parse_option():
     parser.add_argument('--Distance_metric', type=str, default='l2', choices=['cos', 'l2', 'KL', 'l1'],
                         help='Select the distance measure in the loss function')
     parser.add_argument('--atten_methods',type=str,default='text',choices=['text','visual'])
-    parser.add_argument('--Alpha', type=float, default=0.1,help='Model hyperparameter_attention map1')
-    parser.add_argument('--Beta', type=float, default=0.0, help='Model hyperparameter_attention map2')
+    parser.add_argument('--Alpha', type=float, default=0.10,help='Model hyperparameter_attention map1')
+    parser.add_argument('--Beta', type=float, default=0.07, help='Model hyperparameter_attention map2')
     args = parser.parse_args()
 
     args.filename = '{}_{}_{}_{}_lr-{}_decay-{}_bsz-{}_warmup-{}_trial-{}_Alpha-{}_Beta-{}_distance-{}_atten_methods-{}'. \
