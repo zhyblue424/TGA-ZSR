@@ -184,6 +184,14 @@ If you find this repository useful, please consider citing our paper:
      pages={96424--96448},
      year={2024}
 }
+
+@article{Comp-TGA,
+     title={Complementary Text-Guided Attention for Zero-Shot Adversarial Robustness},
+     author={Yu, Lu and Zhang, Haiyang and Xu, Changsheng},
+     journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+     year={2026},
+     publisher={IEEE}
+}
 ```
 
 ## Acknowledgement
