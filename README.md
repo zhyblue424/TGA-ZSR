@@ -1,7 +1,7 @@
 <p align="center">
 
 # Complementary Text-Guided Attention for Zero-Shot Adversarial Robustness  
-### 🚀 TPAMI 2026  &nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp; <a href="https://doi.org/10.1109/TPAMI.2026.3669252">📄 TPAMI 2026 Paper</a>
+### 🚀 TPAMI 2026  &nbsp;&nbsp;&nbsp; **Lu Yu · Haiyang Zhang · Changsheng Xu** &nbsp;&nbsp;&nbsp; <a href="https://arxiv.org/abs/2603.18598">📄 TPAMI 2026 Paper</a>
 
 <br><br>
 
